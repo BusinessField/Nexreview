@@ -15,3 +15,21 @@ document.addEventListener("click", (e) => {
         }
     }
 });
+
+// <-- Scroll to Top -->
+let scrollBtn = document.querySelector(".scroll-to-top");
+
+window.onscroll = function () {
+    if (this.scrollY > 300) {
+        scrollBtn.style.right = "15px";
+    } else {
+        scrollBtn.style.right = "-50px";
+    }
+};
+
+scrollBtn.addEventListener("click", () => {
+    this.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+});
