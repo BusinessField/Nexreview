@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <title>NexReview</title>
+    <link rel="icon" href="images/short-logo.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/blog-page.css">
+  </head>
+  <body>
+    <button class="scroll-to-top btn"><i class="fa fa-arrow-up fa-1x"></i></button>
+    <header class="d-flex justify-content-center align-items-center">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-4">
+            <div class="logo fs-4"><a href="home.html"><img src="images/logo.png" alt="NexReview"></a></div>
+          </div>
+          <div class="col-6">
+            <nav class="text-end">
+              <ul class="nav-bar text-start text-md-end">
+                <div class="head d-flex justify-content-between align-items-center px-4 d-md-none">
+                  <div class="logo fs-4"><a href="home.html"><img src="images/logo.png" alt="NexReview"></a></div>
+                  <div class="close-btn">
+                    <button class="btn fs-4"><i class="fa fa-close"></i></button>
+                  </div>
+                </div>
+                <li class="d-md-inline-block me-md-4 fs-md-6"><a href="home.html">Home</a></li>
+                <li class="d-md-inline-block me-md-4 fs-md-6"><a href="blog.html">Blog</a></li>
+                <li class="d-md-inline-block me-md-4 fs-md-6"><a href="about.html">About</a></li>
+                <li class="d-md-inline-block fs-md-6"><a href="contact.html">Contact</a></li>
+              </ul>
+              <div class="toggle-btn btn d-md-none"><i class="fa fa-bars fa-2x"></i></div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="breadcrumb-holder py-2" aria-label="breadcrumb">
+      <div class="container">
+        <ul class="breadcrumb">
+          <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Blog</li>
+        </ul>
+      </div>
+    </div>
+    <div class="landing py-5 text-center">
+      <div class="container">
+        <div class="content py-5">
+          <h1 class="fw-bold mb-2">NexReview</h1>
+          <p class="mb-4">Where you can find Reviews, News, Games, Techs and much more</p>
+          <form>
+            <input class="search" type="text" placeholder="Search for a topic">
+            <button>Search</button>
+            <ul class="search-result p-0 text-start"></ul>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/pages/blog-page.js"></script>
+  </body>
+</html>

@@ -33,3 +33,73 @@ scrollBtn.addEventListener("click", () => {
         behavior: "smooth",
     });
 });
+
+// <-- Handle Search -->
+let searchInput = document.querySelector(".search");
+let searchResultBox = document.querySelector(".search-result");
+let searchValue;
+let posts = [];
+
+fetch("json/posts.json")
+.then((result) => result.json())
+.then((result) => {
+    for (let post of result) {
+        posts.push(post);
+    }
+});
+
+searchInput.addEventListener("input", () => {
+    if (searchInput.value !== "") {
+        searchResultBox.innerHTML = "";
+
+        searchValue = searchInput.value.toLowerCase();
+        let currentPost;
+        let pickedPosts = [];
+        
+        // Checking The Valid Post
+        for (let i = 0; i < posts.length; i++) { 
+            currentPost = posts[i];
+            if (pickedPosts.length === 4) {
+                break;
+            }
+            for (let j = 0; j < currentPost.keywords.length; j++) {
+                let currentPostKeywords = currentPost.keywords[j].toLowerCase();
+
+                if (currentPostKeywords.includes(searchValue)) {
+                    // console.log("yes")
+                    // console.log(`Search Value: ${searchValue}`)
+                    // console.log(`Search Value: ${currentPostKeywords}`)
+                    // console.log(`Title: ${currentPost.title}`)
+                    pickedPosts.push(currentPost);
+                    break;
+                }
+            }
+        }
+        console.log(pickedPosts)
+        // Creating Search Result
+        pickedPosts.forEach((post) => {
+            let li = document.createElement("li");
+            let a = document.createElement("a");
+
+            a.className = "d-block ps-3 py-3";
+            a.href = post.postLink;
+            a.appendChild(document.createTextNode(post.title));
+
+            li.appendChild(a);
+            searchResultBox.appendChild(li);
+        })
+    } else {
+        searchResultBox.innerHTML = "";
+    }
+});
+
+function getPosts() {
+    fetch("json/posts.json")
+    .then((result) => result.json())
+    .then((result) => {
+        for (let post of result) {
+            posts.push(post);
+            console.log(posts.length)
+        }
+    });
+}
