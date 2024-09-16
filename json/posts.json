@@ -15,16 +15,30 @@
     },
     {
         "title": "All About Our Software",
-        "category": "Company",
+        "category": "review",
         "image": "images/image-03.jpg",
         "postLink": "testing-post3.html",
-        "keywords": ["company"]
+        "keywords": ["Software"]
     },
     {
-        "title": "Best Ativaros Softwares of 2024",
-        "category": "Review",
+        "title": "Best antivirus Softwares of 2024",
+        "category": "review",
         "image": "images/image-04.jpeg",
         "postLink": "testing-post4.html",
-        "keywords": ["antivaros"]
+        "keywords": ["antivirus"]
+    },
+    {
+        "title": "Best Games of 2024",
+        "category": "gaming",
+        "image": "images/image-05.png",
+        "postLink": "testing-post4.html",
+        "keywords": ["gaming"]
+    },
+    {
+        "title": "NexReview Launched Their First Software",
+        "category": "news",
+        "image": "images/image-06.jpeg",
+        "postLink": "testing-post4.html",
+        "keywords": ["news", "Software", "NexReview"]
     }
 ]

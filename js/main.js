@@ -38,15 +38,10 @@ scrollBtn.addEventListener("click", () => {
 let searchInput = document.querySelector(".search");
 let searchResultBox = document.querySelector(".search-result");
 let searchValue;
-let posts = [];
+let searchPosts = [];
 
-fetch("json/posts.json")
-.then((result) => result.json())
-.then((result) => {
-    for (let post of result) {
-        posts.push(post);
-    }
-});
+getPosts();
+
 
 searchInput.addEventListener("input", () => {
     if (searchInput.value !== "") {
@@ -57,8 +52,8 @@ searchInput.addEventListener("input", () => {
         let pickedPosts = [];
         
         // Checking The Valid Post
-        for (let i = 0; i < posts.length; i++) { 
-            currentPost = posts[i];
+        for (let i = 0; i < searchPosts.length; i++) { 
+            currentPost = searchPosts[i];
             if (pickedPosts.length === 4) {
                 break;
             }
@@ -66,16 +61,11 @@ searchInput.addEventListener("input", () => {
                 let currentPostKeywords = currentPost.keywords[j].toLowerCase();
 
                 if (currentPostKeywords.includes(searchValue)) {
-                    // console.log("yes")
-                    // console.log(`Search Value: ${searchValue}`)
-                    // console.log(`Search Value: ${currentPostKeywords}`)
-                    // console.log(`Title: ${currentPost.title}`)
                     pickedPosts.push(currentPost);
                     break;
                 }
             }
         }
-        console.log(pickedPosts)
         // Creating Search Result
         pickedPosts.forEach((post) => {
             let li = document.createElement("li");
@@ -93,13 +83,16 @@ searchInput.addEventListener("input", () => {
     }
 });
 
+
+
+// Start Functions
+
 function getPosts() {
     fetch("json/posts.json")
     .then((result) => result.json())
     .then((result) => {
         for (let post of result) {
-            posts.push(post);
-            console.log(posts.length)
+            searchPosts.push(post);
         }
     });
 }
