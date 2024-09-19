@@ -22,6 +22,7 @@ setHomePosts();
 
 // <-- Start Functions -->
 
+// Set Staff Picks Posts Function
 function setStaffPosts() {
     fetch("./json/staff-picks-posts.json")
     .then((result) => result.json())
@@ -39,6 +40,7 @@ function setStaffPosts() {
     .catch(() => document.querySelector(".staff-picks .staff-boxes").innerHTML = "More Posts Comming Soon");
 }
 
+// Set Home Page Main Post Function
 function setMainPost() {
     fetch("./json/home-page-posts.json")
     .then((result) => result.json())
@@ -56,6 +58,7 @@ function setMainPost() {
     .catch(() => document.querySelector(".main-post-box").innerHTML = "Something Went Wrong, Try Reloading The Page");
 }
 
+// Set Home Page Posts Function
 function setHomePosts() {
     fetch("./json/home-page-posts.json")
     .then((result) => result.json())

@@ -4,9 +4,21 @@ let headerSearchBtn = document.querySelector(".header-search-btn");
 
 headerSearchBtn.onclick = function (e) {
     e.preventDefault();
+    e.stopPropagation();
+    this.classList.add("active");
+    headerSearchInp.classList.add("active");
     if (headerSearchInp.value !== "") {
         getHeaderSearchPosts();
         headerSearchInp.value = "";
+    }
+
+    if (this.classList.contains("active")) {
+        document.addEventListener("click", (e) => {
+            if (e.target !== headerSearchBtn && e.target !== headerSearchInp) {
+                this.classList.remove("active");
+                headerSearchInp.classList.remove("active");
+            }
+        });
     }
 };
 
@@ -35,7 +47,7 @@ function getHeaderSearchPosts() {
             // <-- Set Search Result Pop up -->
             // Create Elements
             let searchPopup = document.createElement("div");
-            let gridContainer = document.createElement("div");
+            let searchContainer = document.createElement("div");
 
             let searchHead = document.createElement("div");
             let searchHeadTitle = document.createElement("h2");
@@ -46,23 +58,23 @@ function getHeaderSearchPosts() {
 
             // Set Classes and InnerHTML
             searchPopup.className = "search-popup";
-            gridContainer.className = "container";
+            searchContainer.className = "search-container p-3 p-md-4";
 
-            searchHead.className = "search-head";
-            searchHeadTitle.className = "fs-3";
+            searchHead.className = "search-head px-2";
+            searchHeadTitle.className = "fs-4";
             searchWord.className = "search-word";
-            searchClose.className = "search-close-btn btn fs-4";
+            searchClose.className = "search-close-btn btn fs-4 px-0";
             searchHeadTitle.innerHTML = `${pickedPosts.length === 1 ? "Result" : "Results"} Related to: `;
             searchWord.innerHTML = searchValue;
             searchClose.innerHTML = `<i class="fa fa-close"></i>`;
 
-            searchResultsHolder.className = "search-result px-5 py-4";
+            searchResultsHolder.className = "search-result px-3 py-4";
 
             // Get Posts Titles and Links
             for (let i = 0; i < pickedPosts.length; i++) {
                 let resultBox = document.createElement("a");
                 let resultTitle = document.createElement("h3");
-                resultBox.className = "result-box d-block px-4 py-3";
+                resultBox.className = "result-box d-block p-3";
                 resultTitle.className = "post-title fs-5 m-0";
 
                 resultBox.href = pickedPosts[i].postLink;
@@ -78,10 +90,10 @@ function getHeaderSearchPosts() {
             searchHead.appendChild(searchHeadTitle);
             searchHead.appendChild(searchClose);
 
-            gridContainer.appendChild(searchHead);
-            gridContainer.appendChild(searchResultsHolder);
+            searchContainer.appendChild(searchHead);
+            searchContainer.appendChild(searchResultsHolder);
 
-            searchPopup.appendChild(gridContainer);
+            searchPopup.appendChild(searchContainer);
 
             document.body.appendChild(searchPopup);
 
