@@ -10,6 +10,7 @@ headerSearchBtn.onclick = function (e) {
     if (headerSearchInp.value !== "") {
         getHeaderSearchPosts();
         headerSearchInp.value = "";
+        !headerSearchInp.blur();
     }
 
     if (this.classList.contains("active")) {
@@ -100,7 +101,11 @@ function getHeaderSearchPosts() {
             // Clicking on Close Button
             searchClose.addEventListener("click", (e) => {
                 e.stopPropagation();
-                searchPopup.remove();
+                searchPopup.style.transition = "0.3s";
+                searchPopup.style.scale = "0";
+                setTimeout(() => {
+                    searchPopup.remove();
+                }, 300)
             })
         } else {
             // If There is no Posts
