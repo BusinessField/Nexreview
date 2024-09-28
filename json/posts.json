@@ -4,28 +4,28 @@
         "category": "Review",
         "image": "images/image-01.jpeg",
         "postLink": "testing-post1.html",
-        "keywords": ["vpn", "vt"]
+        "keywords": ["vpn", "review"]
     },
     {
         "title": "How to Promote Your Project With Using Our Company Software",
         "category": "How to",
         "image": "images/image-02.jpg",
         "postLink": "testing-post2.html",
-        "keywords": ["how to"]
+        "keywords": ["how to", "reiew"]
     },
     {
         "title": "All About Our Software",
         "category": "review",
         "image": "images/image-03.jpg",
         "postLink": "testing-post3.html",
-        "keywords": ["Software"]
+        "keywords": ["Software", "review"]
     },
     {
         "title": "Best antivirus Softwares of 2024",
         "category": "review",
         "image": "images/image-04.jpeg",
         "postLink": "testing-post4.html",
-        "keywords": ["antivirus"]
+        "keywords": ["review", "antivirus"]
     },
     {
         "title": "Best Games of 2024",
@@ -39,6 +39,6 @@
         "category": "review",
         "image": "images/image-06.jpeg",
         "postLink": "testing-post4.html",
-        "keywords": ["news", "Software", "NexReview"]
+        "keywords": ["news", "Software", "NexReview", "review"]
     }
 ]
